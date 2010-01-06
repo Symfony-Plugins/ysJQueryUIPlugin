@@ -131,7 +131,8 @@ function _ui_resizable_pattern($configuration){
     if(isset($configuration['resize'])){  $pattern .= toJQueryOption('resize', $configuration['resize']); }
     if(isset($configuration['stop'])){    $pattern .= toJQueryOption('stop', $configuration['stop']); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

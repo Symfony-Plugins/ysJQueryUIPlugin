@@ -96,15 +96,7 @@ function add_css_configuration_file($filesName, $position = 'last',  $path = nul
   if(is_null($path)){
     $path = get_ui_css_path();
   }
-  if(!is_array($filesName)){
-    sfContext::getInstance()->getResponse()->addStylesheet($path . $filesName, $position);
-  }else{
-    foreach ($filesName as $files){
-      sfContext::getInstance()->getResponse()->addStylesheet($path . $files, $position);
-    }
-  }
-
-
+  add_css($filesName, $path, $position);
 }
 
 /**
@@ -117,13 +109,7 @@ function add_js_configuration_file($filesName, $position = 'last', $path = null)
   if(is_null($path)){
     $path = get_ui_js_path();
   }
-  if(!is_array($filesName)){
-    sfContext::getInstance()->getResponse()->addJavascript($path . $filesName, $position);
-  }else{
-    foreach ($filesName as $files){
-      sfContext::getInstance()->getResponse()->addJavascript($path . $files, $position);
-    }
-  }
+  add_js($filesName, $path, $position);
 }
 
 
@@ -829,7 +815,8 @@ function _ui_themeroller_pattern($configuration){
     if(isset($configuration['onClose'])){       $pattern .= toJQueryOption('onClose', $configuration['onClose'], true); }
     if(isset($configuration['onSelect'])){      $pattern .= toJQueryOption('onSelect', $configuration['onSelect'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

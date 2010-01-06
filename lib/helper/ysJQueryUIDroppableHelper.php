@@ -121,7 +121,8 @@ function _ui_droppable_pattern($configuration){
     if(isset($configuration['out'])){             $pattern .= toJQueryOption('out', $configuration['out'], true); }
     if(isset($configuration['drop'])){            $pattern .= toJQueryOption('drop', $configuration['drop'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

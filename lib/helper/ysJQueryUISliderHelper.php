@@ -146,7 +146,8 @@ function _ui_slider_pattern($configuration){
     if(isset($configuration['change'])){  $pattern .= toJQueryOption('change', $configuration['change'], true); }
     if(isset($configuration['stop'])){    $pattern .= toJQueryOption('stop', $configuration['stop'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

@@ -130,7 +130,8 @@ function _ui_selectable_pattern($configuration){
     if(isset($configuration['unselected'])){    $pattern .= toJQueryOption('unselected', $configuration['unselected'], true); }
     if(isset($configuration['unselecting'])){   $pattern .= toJQueryOption('unselecting', $configuration['unselecting'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

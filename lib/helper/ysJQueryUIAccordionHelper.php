@@ -163,7 +163,8 @@ function _ui_accordion_pattern($configuration){
     if(isset($configuration['change'])){           $pattern .= toJQueryOption('change', $configuration['change'], true); }
     if(isset($configuration['changestart'])){      $pattern .= toJQueryOption('changestart', $configuration['changestart'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

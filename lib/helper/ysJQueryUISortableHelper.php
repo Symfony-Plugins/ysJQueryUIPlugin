@@ -210,7 +210,8 @@ function _ui_sortable_pattern($configuration){
     if(isset($configuration['activate'])){      $pattern .= toJQueryOption('activate', $configuration['activate'], true); }
     if(isset($configuration['deactivate'])){    $pattern .= toJQueryOption('deactivate', $configuration['deactivate'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

@@ -195,7 +195,9 @@ function _ui_dialog_pattern($configuration){
     if(isset($configuration['resize'])){        $pattern .= toJQueryOption('resize', $configuration['resize'] , true); }
     if(isset($configuration['resizeStop'])){    $pattern .= toJQueryOption('resizeStop', $configuration['resizeStop'] , true); }
     if(isset($configuration['close'])){         $pattern .= toJQueryOption('close', $configuration['close'] , true); }
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

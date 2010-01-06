@@ -143,7 +143,8 @@ function _ui_draggable_pattern($configuration){
     if(isset($configuration['drag'])){    $pattern .= toJQueryOption('drag', $configuration['drag'], true); }
     if(isset($configuration['stop'])){    $pattern .= toJQueryOption('stop', $configuration['stop'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

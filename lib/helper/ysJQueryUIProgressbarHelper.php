@@ -145,7 +145,8 @@ function _ui_progressbar_pattern($configuration){
     //EVENTS SUPPORT
     if(isset($configuration['change'])){ $pattern .= toJQueryOption('change', $configuration['change'] , true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

@@ -309,7 +309,8 @@ function _ui_tabs_pattern($configuration){
     if(isset($configuration['enable'])){        $pattern .= toJQueryOption('enable', $configuration['enable'], true); }
     if(isset($configuration['disable'])){       $pattern .= toJQueryOption('disable', $configuration['disable'], true); }
 
-    $pattern = substr($pattern,0,(strlen($pattern)) - 1);
+    if($pattern != '{')
+      $pattern = substr($pattern,0,(strlen($pattern)) - 1);
     $pattern .= '}';
   }
   return $pattern;

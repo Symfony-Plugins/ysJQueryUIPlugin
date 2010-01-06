@@ -1219,6 +1219,10 @@ For more information about this functions and its arguments see the phpdocs.
 
 *Changelog*
 -----------
+***2010-01-06 0.0.2 BETA***
+
+ * oyepez003: Some Bugs Fixed (styles and javascript code)
+
 ***2009-29-12 0.0.1 BETA***
 
  * oyepez003: Initial release
