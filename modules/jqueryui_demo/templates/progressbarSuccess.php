@@ -11,7 +11,7 @@
              array(
                'listener' => array(
                  'selector' => '#btnBarListener',
-                 'event' => 'click',
+                 'oneEvent' => 'click',
                  'before' => like_function(ui_progressbar_animate('#progressbar' , 20))),
                'value' => 80 ,
                'change' =>

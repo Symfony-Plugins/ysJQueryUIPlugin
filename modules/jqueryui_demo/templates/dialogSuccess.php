@@ -7,7 +7,7 @@
 <?php ui_dialog_init('dialogId' , array(
         'listener' => array(
           'selector' => '#btnDialogListener',
-          'event' => 'click'),
+          'oneEvent' => 'click'),
         'title' => 'Lorem ipsum',
         'modal' => true,
         'buttons' => array('Close' => like_function(ui_dialog_close('this'))),

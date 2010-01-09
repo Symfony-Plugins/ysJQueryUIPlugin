@@ -263,7 +263,7 @@ function ui_core_exist(){
  * @param string $attributes html attributes and properties.
  */
 function ui_init_content_panel($configuration = '', $attributes = ''){
-  $defaultClass = 'ui-dialog ui-widget ui-widget-content ui-draggable ui-resizable';
+  $defaultClass = 'ui-widget ui-widget-content ui-draggable ui-resizable';
   $defaultStyle = 'width:auto; height:auto; ';
   $id = '';
   if(is_array($configuration)){

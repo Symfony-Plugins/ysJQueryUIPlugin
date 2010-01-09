@@ -10,7 +10,7 @@
           'listener' => array(
             'selector' => '#btnAccordionListener',
             'event' => 'click',
-            'after' => like_function(jquery_execute_effect('#accordionId','show'))),
+            'after' =>  like_function(jquery_execute_effect('#accordionId','show'))),
           'event'      => 'click',
           'fillSpace'  => false,
           //'change'     => like_function("alert('See the documentation on: http://jqueryui.com/demos/accordion')", 'a, ui'),
@@ -23,8 +23,7 @@
           'autoHeight' => false,
           //'clearStyle' => true,
           'navigation' => false),
-      'style="display:none"'
-      ) ?>
+      'style="display:none"') ?>
 
     <?php ui_accordion_init_section('Lorem ipsum', 'id="section1"') ?>
       <p>

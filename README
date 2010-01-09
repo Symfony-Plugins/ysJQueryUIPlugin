@@ -57,7 +57,7 @@ jQuery and Symfony write less, do more.
 		symfony cc
 
   * See the app.yml to change where you load the library jquery.UI and themes (Optional).
-    For localhost configuration is only available ['blitzer', 'redmond', 'ui-lightness', 'matrix'] themes.
+    For localhost configuration is only available [ui-lightness,blitzer,smoothness,cupertino] themes.
     You can add or delete themes.
 
 		[yml]
@@ -148,7 +148,7 @@ the 2nd is the array configuration (optional),
 and the 3rd is html properties (optional)
 
 **Note**: You can define a listener in the configuration array.
-The listener must have the 'selector' and 'event' indexes.
+The listener must have the 'selector' and ('event' or 'oneEvent') indexes.
 You can add a behavior 'before' and 'after' executing the event:
 
 
@@ -156,10 +156,13 @@ You can add a behavior 'before' and 'after' executing the event:
 	array(
 	'listener' => array(
 	  'selector' => '#jQuerySelector',
-	  'event' => 'click',
+	  //'event' => 'click',    // To create the widget each time you run the event
+      'oneEvent' => 'click',   // To create the widget only once you run the event
 	  'after' => like_function("alert('After function')"),
 	  'before' => like_function("alert('Before function')"),
 	))
+
+**Important**: 'oneEvent' takes precedence over 'event' option.
 
 <br><br>
 **WIDGETS:**
@@ -1222,6 +1225,9 @@ For more information about this functions and its arguments see the phpdocs.
 ***2010-01-06 0.0.2 BETA***
 
  * oyepez003: Some Bugs Fixed (styles and javascript code)
+ * oyepez003: Added the 'oneEvent' in the listener array option to create a jQueryUIWidget
+ * oyepez003: Now when you create a ui-dialog with the  'ui_dialog_init' function and you pass the option 'listener', 
+			  automatically the listener will have the possibility of opening the dialog on the defined event
 
 ***2009-29-12 0.0.1 BETA***
 

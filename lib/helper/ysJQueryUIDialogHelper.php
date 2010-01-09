@@ -35,6 +35,14 @@ function set_dialog_configuration_files($type = null){
 function ui_dialog_init($id , $configurations = array() , $html_attributes = null){
     $pattern = _ui_dialog_pattern($configurations);
     init_ui_widget('dialog',$pattern,$id ,$configurations);
+    if(isset($configurations['listener'])){
+      $listener = $configurations['listener'];
+      if((isset($listener['event']) || isset($listener['oneEvent'])) && isset($listener['selector']) ){
+        $dialogId = '#' . $id;
+        $event = (isset($listener['oneEvent'])) ? $listener['oneEvent'] : $listener['event'];
+        echo jquery_execute(ui_dialog_open($dialogId),$listener['selector'], $event);
+      }
+    }
     echo '<div id="' . $id . '" '. $html_attributes .'>';
 }
 
